@@ -34,7 +34,7 @@ namespace Domingo_Roof_Works.Controllers
             }
 
             var job = await _context.Job
-                .FirstOrDefaultAsync(m => m.JobId == id);
+                .FirstOrDefaultAsync(m => m.JobCardNo == id);
             if (job == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace Domingo_Roof_Works.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobId,CustomerId,JobTypeId,Days")] Job job)
+        public async Task<IActionResult> Create([Bind("JobCardNo,CustomerId,JobTypeId,Days")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace Domingo_Roof_Works.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("JobId,CustomerId,JobTypeId,Days")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("JobCardNo,CustomerId,JobTypeId,Days")] Job job)
         {
-            if (id != job.JobId)
+            if (id != job.JobCardNo)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Domingo_Roof_Works.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!JobExists(job.JobId))
+                    if (!JobExists(job.JobCardNo))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace Domingo_Roof_Works.Controllers
             }
 
             var job = await _context.Job
-                .FirstOrDefaultAsync(m => m.JobId == id);
+                .FirstOrDefaultAsync(m => m.JobCardNo == id);
             if (job == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Domingo_Roof_Works.Controllers
 
         private bool JobExists(int id)
         {
-            return _context.Job.Any(e => e.JobId == id);
+            return _context.Job.Any(e => e.JobCardNo == id);
         }
     }
 }
