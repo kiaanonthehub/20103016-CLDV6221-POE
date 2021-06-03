@@ -21,5 +21,7 @@ namespace Domingo_Roof_Works.Data
         public DbSet<Domingo_Roof_Works.Models.JobType> JobType { get; set; }
 
         public DbSet<Domingo_Roof_Works.Models.Material> Material { get; set; }
+
+        public DbSet<Domingo_Roof_Works.Models.Job> Job { get; set; }
     }
 }

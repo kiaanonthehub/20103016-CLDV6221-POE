@@ -95,12 +95,12 @@ namespace Domingo_Roof_Works.Models
 
             modelBuilder.Entity<Job>(entity =>
             {
-                entity.HasKey(e => e.JobCardNo)
+                entity.HasKey(e => e.JobId)
                     .HasName("PK__Job__98F47524F0F5A9E0");
 
                 entity.ToTable("Job");
 
-                entity.Property(e => e.JobCardNo).ValueGeneratedNever();
+                entity.Property(e => e.JobId).ValueGeneratedNever();
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
